@@ -1,0 +1,129 @@
+SCREEN 12
+CLS
+
+M1 = 4  '1 Month  =  4 Weeks
+M6 = 26 '6 Months = 26 Weeks
+
+Y1 = 52
+Y5 = Y1 * 5
+Y10 = Y1 * 10
+Y30 = Y1 * 30
+
+W1 = 7
+
+P1WS = 100 'Person 1 Weekly Salary
+ P1M1 = P1WS * M1
+ P1M6 = P1WS * M6
+ P1Y1 = P1WS * Y1
+ P1Y5 = P1WS * Y5
+ P1Y10 = P1WS * Y10
+ P1Y30 = P1WS * Y30
+
+P2WS = 0   'May Vary
+ P2M1 = P2WS
+ P2M6 = P2WS
+ P2Y1 = P2WS
+ P2Y5 = P2WS
+ P2Y10 = P2WS
+ P2Y30 = P2WS
+
+
+  FOR I = 1 TO M1
+   P2M1 = P2M1 + I
+  NEXT I
+
+  FOR I = 1 TO M6
+   P2M6 = P2M6 + I
+  NEXT I
+
+  FOR I = 1 TO Y1
+   P2Y1 = P2Y1 + I
+  NEXT I
+
+  FOR I = 1 TO Y5
+   P2Y5 = P2Y5 + I
+  NEXT I
+
+  FOR I = 1 TO Y10
+   P2Y10 = P2Y10 + I
+  NEXT I
+
+  FOR I = 1 TO Y30
+   P2Y30 = P2Y30 + I
+  NEXT I
+
+P3WS = .1
+ P3M1 = P3WS
+ P3M6 = P3WS
+ P3Y1 = P3WS
+ P3Y5 = P3WS
+ P3Y10 = P3WS
+ P3Y30 = P3WS
+
+  FOR I = 1 TO M1 * (W1 - 2) - 1
+  P3M1A = P3M1A + P3M1
+   P3M1 = P3M1 * 2
+  NEXT I
+
+  FOR I = 1 TO M6 * (W1 - 2) - 1
+  P3M6A = P3M6A + P3M6
+   P3M6 = P3M6 * 2
+   ON ERROR GOTO done
+  NEXT I
+
+done:
+CLS
+PRINT "Press anything to see graph..."
+SLEEP
+CLS
+PRINT
+PRINT STRING$(2, " "); "Time", "Billy", "Bob", "Joe"
+'PRINT STRING$(80, "_")
+PRINT
+PRINT STRING$(2, " "); "1 Month", "$"; P1M1, "$"; P2M1, "$"; P3M1A
+PRINT
+PRINT STRING$(2, " "); "6 Months", "$"; P1M6, "$"; P2M6, "$"; P3M6A
+PRINT
+PRINT STRING$(2, " "); "1 Year", "$"; P1Y1, "$"; P2Y1, "Your own state"
+PRINT
+PRINT STRING$(2, " "); "5 Years", "$"; P1Y5, "$"; P2Y5, "The deed to mars"
+PRINT
+PRINT STRING$(2, " "); "10 Years", "$"; P1Y10, "$"; P2Y10, "You own the economy"
+PRINT
+PRINT STRING$(2, " "); "30 Years", "$"; P1Y30, "$"; P2Y30, "You run the economy"
+
+'DRAW "U300 L115 D300 U300 L115 D300 L100 R800 U209 L800 D39 R800 D34 L800 D31 R800 D33 L800 D31 R800 D39 L800"
+'DRAW "U300 L115 D300 U300 L115 D300 U216 L100 R800 D31 L800 D32 R800 D32 L800 D32 R800 D32 L800 D32 R800"
+
+LINE (9, 9)-(500, 9), 15
+LINE (9, 9)-(9, 230), 15
+LINE (500, 8)-(500, 230), 15
+LINE (331, 8)-(331, 230), 15
+LINE (216, 8)-(216, 230), 15
+LINE (101, 8)-(101, 230), 15
+LINE (8, 40)-(500, 40), 15
+LINE (8, 71)-(500, 71), 15
+LINE (8, 103)-(500, 103), 15
+LINE (8, 136)-(500, 136), 15
+LINE (8, 167)-(500, 167), 15
+LINE (8, 200)-(500, 200), 15
+LINE (8, 231)-(500, 231), 15
+
+LINE (8, 8)-(500, 8), 13
+LINE (8, 8)-(8, 230), 13
+LINE (500, 8)-(500, 230), 13
+LINE (330, 8)-(330, 230), 13
+LINE (215, 8)-(215, 230), 13
+LINE (100, 8)-(100, 230), 13
+LINE (8, 39)-(500, 39), 13
+LINE (8, 70)-(500, 70), 13
+LINE (8, 102)-(500, 102), 13
+LINE (8, 135)-(500, 135), 13
+LINE (8, 166)-(500, 166), 13
+LINE (8, 199)-(500, 199), 13
+LINE (8, 230)-(500, 230), 13
+
+PAINT (320, 240), 9, 13
+
+END
+

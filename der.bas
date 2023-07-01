@@ -1,0 +1,52 @@
+DECLARE SUB Circle2 ()
+Circle2
+
+SUB Circle1
+
+SCREEN 12
+CLS
+DO
+FOR Q = 0 TO 50 STEP 1
+FOR I = 0 TO 500 STEP 5
+ Color1 = INT(RND * 16)
+ CIRCLE (320 + Q, 240 + Q), I, Color1
+NEXT I
+NEXT Q
+SCREEN 12
+CLS
+LOOP
+
+END SUB
+
+SUB Circle2
+
+SCREEN 12
+CLS
+DO
+FOR I = 0 TO 500 STEP 5
+ Color1 = INT(RND * 16)
+ CIRCLE (320, 240), I, Color1
+NEXT I
+LOOP
+
+END SUB
+
+SUB Circle3
+
+SCREEN 12
+CLS
+
+FOR I = 0 TO 500 STEP 1
+ Color1 = INT(RND * 16)
+ CIRCLE (320, 240), I, Color1
+NEXT I
+
+DO
+FOR I = 0 TO 500 STEP 5
+ Color1 = INT(RND * 16)
+ CIRCLE (320, 240), I, Color1
+NEXT I
+LOOP
+
+END SUB
+
